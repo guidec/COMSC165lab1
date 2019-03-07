@@ -1,13 +1,13 @@
 /***************************************************************
 Problem#: Lab Assignment 1
 
-You are to write a program that computes a patient s bill for a hospital stay.
+You are to write a program that computes a patient's bill for a hospital stay.
 The different components
 of the program are:
 
 Name: Carly Gordon
-ID:
-Date:
+ID: 1607043
+Date: 03/03/2019
 Status:	(complete)
 Course: COMSC-165-2405
 
@@ -24,75 +24,113 @@ Course: COMSC-165-2405
 #include <vector>
 using namespace std;
 
-// class PatientAccount {
-//
-// 	//patient information
-// public:
-//
-// 	string name;
-// 	int age;
-// 	string address;
-// 	int ssn;
-//
-// 	void getInfo() {
-//
-// 		cout << "New patient account. Enter the following information: " << endl;
-//
-// 		string input;
-// 		cout << "name: ";
-// 		getline(cin, input);
-// 		stringstream(input) >> name;
-//
-// 		cout << "age: ";
-// 		getline(cin, input);
-// 		stringstream(input) >> age;
-//
-// 		cout << "address: ";
-// 		getline(cin, input);
-// 		stringstream(input) >> address;
-//
-// 		cout << "SSN: ";
-// 		getline(cin, input);
-// 		stringstream(input) >> ssn;
-// 	}
-//
-// 	double surgeries;
-// 	double pharmacy;
-// 	int numDays;
-// };
-//
-// class Surgery {
-//
-//
-// };
-//
-// class Pharmacy {
-//
-// };
-
 class Item{
-	// atttributes
 public:
+	// atttributes
 	string name;
 	double price;
-
 	// methods
-	string getName(){
-		return name;
-	}
+	string getName(){return name;}
+	double getPrice(){return price;}
+	void setName(string newName){name = newName;}
+	void setPrice(double newPrice){price = newPrice;}
+};
 
-	double getPrice(){
-		return price;
-	}
-
-	void setName(string newName){
-		name = newName;
-	}
-
-	void setPrice(double newPrice){
-		price = newPrice;
+class ItemList{
+public:
+	// attributes
+	vector<Item> list;
+	// methods
+	Item getItem(int index){return list.at(index);}
+	// For patient account only
+	void setItem(int index, Item updatedItem){
+		list.at(index) = updatedItem;
 	}
 };
+
+
+
+// Surgery Menu: Contains all general surgery information
+class Surgery: public ItemList{
+public:
+	// inherits list from ItemList
+	// methods
+	Item getSurgery(){return getItem();}
+
+	// For patient surgery only
+	void setSurgery(int index){
+		Item updatedSurgery;
+
+		// ENTER INDEX TO CHANGE CURRECT SURGERY OR ENTER n to add a surgery
+		// TODO: ADD FIND SURGERY FUNCTION
+		// cout << "Updating Surgery Menu..." << endl
+		// <<
+
+		// list.at(index)
+		// Add new surgery or update surgery
+		if !(list.at(index)){
+			list.push_back(updatedSurgery);
+		} else {
+			list.at()
+		}
+
+
+		// ENTER INDEX TO CHANGE CURRECT SURGERY OR ENTER n to add a surgery
+		// TODO: ADD FIND SURGERY FUNCTION
+		// cout << "Updating Surgery Menu..." << endl
+		// <<
+
+		// list.at(index)
+		// Add new surgery or update surgery
+		if !(list.at(index)){
+			list.push_back(updatedSurgery);
+		} else {
+			list.at()
+		}
+
+		void printSurgeries(){
+			cout << "Surgery List" << endl
+			<< "~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+			for (int i = 0; i < list.size(); i++){
+				cout << "Surgery Item #" << i << endl
+				<< "Name: " << list.at(i).name << endl
+				<< "Price: " << list.at(i).price << endl << endl;
+			}
+		};
+
+
+	}
+
+	void printSurgeries(){
+		cout << "Surgery List" << endl
+		<< "~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+		for (int i = 0; i < list.size(); i++){
+			cout << "Surgery Item #" << i << endl
+			<< "Name: " << list.at(i).name << endl
+			<< "Price: " << list.at(i).price << endl << endl;
+		}
+	};
+
+};
+
+
+
+//
+// // Pharmacy Menu: Contains all general surgery information
+// class Pharmacy{
+// public:
+// 	// attributes
+// 	vector<Item> list;
+// 	// methods
+// 	Item getMedication(int index){
+// 		return list.at(index);
+// 	};
+//
+// 	// Item setSurgery(int);
+//
+// };
 
 
 int main(){
@@ -102,10 +140,12 @@ int main(){
 	double userPrice;
 	// PatientAccount patient;
 
-	// ItemList surgeryList;
+	ItemList surgeryMenu;
 	Item surgery;
 
+	int listCounter = 0;
 
+	// cout << "Assign surgery name: " << endl;
 	surgery.setName("Name of surgery");
 	surgery.setPrice(2.00);
 
@@ -113,10 +153,41 @@ int main(){
 
 	//Add a surgery type and class to surgery class
 	cout << "Testing..." << endl;
-	cout << surgery.getName() << " " << surgery.getPrice() << endl;
+	cout << surgery.getName() << " " << surgery.getPrice() << endl << endl;
 
-	// cout << "Assign surgery name: " << endl;
-	// cin >> userName;
+	cout << "Creating Surgery Menu List. Enter Surgeries and enter q to finish: " << endl;
+
+	// do {
+	// 	cin >> input;
+	// 	cout << endl << "Enter surgery name: ";
+	// 	cin >> surgery.name;
+	//
+	// 	// cout << "name entered is " << userName << endl;
+	//
+	// 	// surgeryMenu.list.at(listCounter).name = userName;
+	//
+	// 	cout << endl << "Enter surgery price: ";
+	// 	cin >> surgery.price;
+	//
+	// 	// surgeryMenu.list.at(listCounter).price = userPrice;
+	//
+	//
+	// 	surgeryMenu.list.push_back(surgery);
+	//
+	// 	cout << "Do you want to continue? ";
+	// 	cin >> input;
+	//
+	// 	listCounter++;
+	// } while(input != "q");
+	//
+	// cout << "Printing Surgery List" << endl;
+	// surgeryMenu.printSurgeries();
+
+
+
+
+
+
 
 
 	return 0;
