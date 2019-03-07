@@ -1,13 +1,13 @@
 /***************************************************************
 Problem#: Lab Assignment 1
 
-You are to write a program that computes a patient s bill for a hospital stay. 
+You are to write a program that computes a patient s bill for a hospital stay.
 The different components
 of the program are:
 
 Name: Carly Gordon
-ID: 
-Date: 
+ID:
+Date:
 Status:	(complete)
 Course: COMSC-165-2405
 
@@ -18,70 +18,106 @@ Status:	(complete)
 Course: COMSC-165-2405
 ****************************************************************/
 
-#include<iostream>
-#include<string>
-#include<sstream>
-
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
 using namespace std;
 
-class PatientAccount {
+// class PatientAccount {
+//
+// 	//patient information
+// public:
+//
+// 	string name;
+// 	int age;
+// 	string address;
+// 	int ssn;
+//
+// 	void getInfo() {
+//
+// 		cout << "New patient account. Enter the following information: " << endl;
+//
+// 		string input;
+// 		cout << "name: ";
+// 		getline(cin, input);
+// 		stringstream(input) >> name;
+//
+// 		cout << "age: ";
+// 		getline(cin, input);
+// 		stringstream(input) >> age;
+//
+// 		cout << "address: ";
+// 		getline(cin, input);
+// 		stringstream(input) >> address;
+//
+// 		cout << "SSN: ";
+// 		getline(cin, input);
+// 		stringstream(input) >> ssn;
+// 	}
+//
+// 	double surgeries;
+// 	double pharmacy;
+// 	int numDays;
+// };
+//
+// class Surgery {
+//
+//
+// };
+//
+// class Pharmacy {
+//
+// };
 
-	//patient information
+class Item{
+	// atttributes
 public:
-
 	string name;
-	int age;
-	string address;
-	int ssn;
-	
-	void getInfo() {
+	double price;
 
-		cout << "New patient account. Enter the following information: " << endl;
-
-		string input;
-		cout << "name: ";
-		getline(cin, input);
-		stringstream(input) >> name;
-
-		cout << "age: ";
-		getline(cin, input);
-		stringstream(input) >> age;
-
-		cout << "address: ";
-		getline(cin, input);
-		stringstream(input) >> address;
-
-		cout << "SSN: ";
-		getline(cin, input);
-		stringstream(input) >> ssn;
+	// methods
+	string getName(){
+		return name;
 	}
 
-	double surgeries;
-	double pharmacy;
-	int numDays;
+	double getPrice(){
+		return price;
+	}
+
+	void setName(string newName){
+		name = newName;
+	}
+
+	void setPrice(double newPrice){
+		price = newPrice;
+	}
 };
 
-class Surgery {
-	
 
-};
-
-class Pharmacy {
-
-};
-
-int main()
-{
-
+int main(){
 	// create a new patient
 	string input;
-	PatientAccount patient;
-	patient.getInfo();
+	string userName;
+	double userPrice;
+	// PatientAccount patient;
 
-	//Add a surgery type and class to surgery class 
+	// ItemList surgeryList;
+	Item surgery;
 
+
+	surgery.setName("Name of surgery");
+	surgery.setPrice(2.00);
+
+	// patient.getInfo();
+
+	//Add a surgery type and class to surgery class
+	cout << "Testing..." << endl;
+	cout << surgery.getName() << " " << surgery.getPrice() << endl;
+
+	// cout << "Assign surgery name: " << endl;
+	// cin >> userName;
 
 
 	return 0;
 }
-
