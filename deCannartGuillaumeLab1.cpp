@@ -1,6 +1,5 @@
 /***************************************************************
 Problem#: Lab Assignment 1
-
 You are to write a program that computes a patient s bill for a hospital stay. 
 The different components
 of the program are:
@@ -13,7 +12,7 @@ Course: COMSC-165-2405
 
 Name: Guillaume de Cannart
 ID: 1685028
-Date: 02/17/2019
+Date: 03/06/2019
 Status:	(complete)
 Course: COMSC-165-2405
 ****************************************************************/
@@ -25,6 +24,8 @@ Course: COMSC-165-2405
 
 using namespace std;
 
+const int DAILY_RATE = 95.99;
+
 class PatientAccount {
 
 public:
@@ -33,10 +34,12 @@ public:
 	int age;
 	string address;
 	int ssn;
+	int days, roomCost;
 	
-	void getInfo() {
+	void setInfo() {
 
-		cout << "New patient account. Enter the following information: " << endl;
+		cout << "New patient account. Enter the following information: "
+			<< endl;
 
 		string input;
 		cout << "name: ";
@@ -54,26 +57,40 @@ public:
 		cout << "SSN: ";
 		getline(cin, input);
 		stringstream(input) >> ssn;
+
+		cout << endl << "How many days is your expected treatment: ";
+		getline(cin, input);
+		stringstream(input) >> days;
+		roomCost = days * DAILY_RATE;
 	}
 
-	double surgeries;
-	double pharmacy;
-	int numDays;
+	//function to print out all content 
+
+
+	//vector to store surgeries.
+
+	//vector<list> patientSurgeries;
+	//vector<list> patientSurgeries;
+
+
+
 };
 
 
-void startUser(vector<PatientAccount> PatientDB) {
-	PatientAccount newUser;
-	newUser.getInfo();
+void newPatient(vector<PatientAccount> &patientDB) {
+	PatientAccount newPatient;
+	newPatient.setInfo();
+	patientDB.push_back(newPatient);
+
 }
 
-void startMenu(vector<PatientAccount> PatientDB) {
+void startMenu(vector<PatientAccount> &patientDB) {
 
 	string input;
 	int selection;
 
 	cout << "Welcome to HospitalAdmin. Select from the following menu: " << endl;
-	cout << "1. New User" << endl;
+	cout << "1. New User." << endl;
 	cout << "2. Print Patient Record." << endl;
 	cout << "3. Delete Patient Record." << endl;
 	cout << "4. Add surgery billables to patient record." << endl;
@@ -85,7 +102,8 @@ void startMenu(vector<PatientAccount> PatientDB) {
 
 	switch (selection) {
 	case 1:
-		startUser(PatientDB);
+		newPatient(patientDB);
+		break;
 	case 2:
 		//printRecord();
 	case 3:
@@ -96,11 +114,24 @@ void startMenu(vector<PatientAccount> PatientDB) {
 
 int main()
 {
+	string name;
 	// create a new patient
-	vector<PatientAccount> PatientDB;
+	vector<PatientAccount> patientDB;
 
-	startMenu(PatientDB);
 
+
+	//start user menu upon program startup
+	/*while (1){
+		startMenu(patientDB);
+	}
+	*/
+
+	startMenu(patientDB);
+
+	//example retrieve from hostpital database
+
+	//name = patientDB.at(0).name;
+	//cout << name;
 
 	return 0;
 }
