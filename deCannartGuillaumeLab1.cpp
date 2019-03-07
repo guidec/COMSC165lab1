@@ -43,6 +43,8 @@ public:
 	double getPrice(){return price;}
 	void setName(string newName){name = newName;}
 	void setPrice(double newPrice){price = newPrice;}
+
+	~Item() { };
 };
 
 class ItemList{
