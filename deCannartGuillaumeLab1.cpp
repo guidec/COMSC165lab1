@@ -21,6 +21,7 @@ Course: COMSC-165-2405
 #include<iostream>
 #include<string>
 #include<sstream>
+#include<vector>
 
 using namespace std;
 
@@ -60,38 +61,45 @@ public:
 	int numDays;
 };
 
-class Surgery {
-	
 
-};
+void startUser(vector<PatientAccount> PatientDB) {
+	PatientAccount newUser;
+	newUser.getInfo();
+}
 
-class Pharmacy {
+void startMenu(vector<PatientAccount> PatientDB) {
 
-};
+	string input;
+	int selection;
 
-
-void startMenu() {
 	cout << "Welcome to HospitalAdmin. Select from the following menu: " << endl;
 	cout << "1. New User" << endl;
 	cout << "2. Print Patient Record." << endl;
 	cout << "3. Delete Patient Record." << endl;
 	cout << "4. Add surgery billables to patient record." << endl;
-	cout << "5. Add pharmacy billables to patient record."
+	cout << "5. Add pharmacy billables to patient record." << endl;
+	cout << endl << "Awaiting input: ";
 
+	getline(cin, input);
+	stringstream(input) >> selection;
+
+	switch (selection) {
+	case 1:
+		startUser(PatientDB);
+	case 2:
+		//printRecord();
+	case 3:
+		//deleteRecord();
+		cout << "hi";
+	}
 }
 
 int main()
 {
-
 	// create a new patient
-	string input;
-	PatientAccount patient;
-	patient.getInfo();
+	vector<PatientAccount> PatientDB;
 
-	//Add a surgery type and class to surgery class 
-	startMenu();
-
-
+	startMenu(PatientDB);
 
 
 	return 0;
