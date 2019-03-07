@@ -28,8 +28,13 @@ using namespace std;
 const double DAILY_RATE = 95.99;
 const int ADMIN_CODE = 1111;
 
+
 class Item{
 public:
+	Item(string _name, double _price){
+		name = _name;
+		price = _price;
+	}
 	// atttributes
 	string name;
 	double price;
@@ -53,14 +58,10 @@ public:
 };
 
 
-// Surgery Menu: Contains all general surgery information
+
 class Surgery: public ItemList{
 public:
-	// inherits list from ItemList
 	// methods
-	Item getSurgery(){return getItem();}
-
-	// For patient surgery only
 	void setSurgery(int index){
 		Item updatedSurgery;
 
@@ -71,42 +72,31 @@ public:
 
 		// list.at(index)
 		// Add new surgery or update surgery
-		if !(list.at(index)){
-			list.push_back(updatedSurgery);
-		} else {
-			list.at()
+		// if !(list.at(index)){
+		// 	list.push_back(updatedSurgery);
+		// } else {
+		// 	list.at();
+		// }
+	}
+	void printSurgeries(){
+		cout << "Surgery List" << endl
+		<< "~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+		for (int i = 0; i < list.size(); i++){
+			cout << "Surgery Item #" << i << endl
+			<< "Name: " << list.at(i).name << endl
+			<< "Price: " << list.at(i).price << endl << endl;
 		}
-
-
-		// ENTER INDEX TO CHANGE CURRECT SURGERY OR ENTER n to add a surgery
-		// TODO: ADD FIND SURGERY FUNCTION
-		// cout << "Updating Surgery Menu..." << endl
-		// <<
-
-		// list.at(index)
-		// Add new surgery or update surgery
-		if !(list.at(index)){
-			list.push_back(updatedSurgery);
-		} else {
-			list.at()
-		}
-
-		void printSurgeries(){
-			cout << "Surgery List" << endl
-			<< "~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-
-			for (int i = 0; i < list.size(); i++){
-				cout << "Surgery Item #" << i << endl
-				<< "Name: " << list.at(i).name << endl
-				<< "Price: " << list.at(i).price << endl << endl;
-			}
-		};
+	}
 };
+
+Surgery surgeryMenu.list = {{Item.name = "Knees", Item.price = 3000}, {Item.name = "Leg", Item.price = 2000}, {Item.name = "Arms", Item.price = 1000}, {Item.name = "Brain", Item.price = 9000}, {Item.name = "Heart", Item.price = 5000}};
+
 
 class PatientAccount {
 
 private:
-	
+
 	string name;
 	int age;
 	string address;
@@ -147,13 +137,13 @@ public:
 	string getName() {
 		return name;
 	}
-	//function to print out all content 
+	//function to print out all content
 
 	//vector to store surgeries.
 
 	//vector<list> patientSurgeries;
 	//vector<list> patientSurgeries;
-  
+
 };
 
 
@@ -230,10 +220,10 @@ void startMenu(vector<PatientAccount> &patientDB) {
 		break;
 	case 2:
 		patientIndex = selectPatient(patientDB);
-		// print out the patient bill 
+		// print out the patient bill
 		break;
 	case 3:
-		//remove patient record 
+		//remove patient record
 		adminAccess();
 		patientIndex = selectPatient(patientDB);
 		removePatient(patientDB, patientIndex);
@@ -321,5 +311,3 @@ int main()
 	// surgeryMenu.printSurgeries();
   return 0;
 }
-
-	
