@@ -26,9 +26,8 @@ using namespace std;
 
 class PatientAccount {
 
-	//patient information
 public:
-
+	
 	string name;
 	int age;
 	string address;
@@ -70,6 +69,17 @@ class Pharmacy {
 
 };
 
+
+void startMenu() {
+	cout << "Welcome to HospitalAdmin. Select from the following menu: " << endl;
+	cout << "1. New User" << endl;
+	cout << "2. Print Patient Record." << endl;
+	cout << "3. Delete Patient Record." << endl;
+	cout << "4. Add surgery billables to patient record." << endl;
+	cout << "5. Add pharmacy billables to patient record."
+
+}
+
 int main()
 {
 
@@ -79,6 +89,8 @@ int main()
 	patient.getInfo();
 
 	//Add a surgery type and class to surgery class 
+	startMenu();
+
 
 
 
